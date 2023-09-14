@@ -1,0 +1,700 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>WriteUp Horizontall</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="cbd8d8a9-999d-4a3b-8aec-86f3261aeac8" class="page sans"><header><h1 class="page-title">WriteUp Horizontall</h1><p class="page-description"></p></header><div class="page-body"><p id="1c8ad881-6531-407d-ba2a-f7ac97aa5c33" class="">
+</p><p id="d6092e0b-91fc-42fa-a912-787830333a3a" class="">Horizontall es una máquina Linux de fácil dificultad donde solo están expuestos los servicios HTTP y SSH. La enumeración del sitio web revela que está construido utilizando el marco Vue JS. Al revisar el código fuente del archivo Javascript, se descubre un nuevo host virtual. Este host contiene el &quot;Strapi Headless CMS&quot;, que es vulnerable a dos CVE, lo que permite a posibles atacantes obtener la ejecución remota de código en el sistema como usuario de &quot;strapi&quot;. Luego, después de enumerar los servicios que escuchan solo en el host local de la máquina remota, se descubre una instancia de Laravel. Para acceder al puerto en el que escucha Laravel, se utiliza un túnel SSH. El marco Laravel instalado está desactualizado y se ejecuta en modo de depuración. Se puede explotar otro CVE para obtener la ejecución remota de código a través de Laravel como &quot;root&quot;.</p><p id="f21e719c-5458-4abb-965d-ee740f64b7de" class="">
+</p><table id="de32ebbe-b652-4092-ae3c-66df1715a178" class="simple-table"><tbody><tr id="f9a93c2c-8e1c-4303-891c-20ea93d8a873"><td id="\FtK" class=""><strong>Información</strong></td><td id="Jgda" class="" style="width:405.3625183105469px">Horizontall</td></tr><tr id="acc46ca7-e015-4f82-84c8-59df0f2dc1e1"><td id="\FtK" class=""><strong>Categorías</strong></td><td id="Jgda" class="" style="width:405.3625183105469px">Evaluación de vulnerabilidad</td></tr><tr id="65784214-19a8-4220-9b14-a754cf491ad2"><td id="\FtK" class="">Á<strong>rea de interés</strong></td><td id="Jgda" class="" style="width:405.3625183105469px">Análisis de código fuente
+Software obsoleto</td></tr><tr id="9a218b67-61ba-440a-8810-3ad61abdfc55"><td id="\FtK" class=""><strong>Lenguajes</strong></td><td id="Jgda" class="" style="width:405.3625183105469px">javascript</td></tr></tbody></table><h2 id="53741d16-5f7e-45f4-a955-c679fa84aceb" class="">Matriz de la máquina</h2><figure id="1fb04cd9-7561-4662-8669-85401a1effb7" class="image"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled.png"><img style="width:487px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled.png"/></a></figure><h2 id="0349b47f-4767-4de0-8193-38b8bd506ccb" class="">Enumeración</h2><p id="cfc9511d-cc6b-492b-b63c-bd3fe9859d9f" class="">Iniciamos con un escaneo </p><p id="edb20603-24bf-4746-b5ea-a4baa0cdd87e" class="">sudo nmap -sS --min-rate 5000 -p- --open -n -Pn 10.129.114.150 -oG allPorts</p><p id="792653ae-a3b6-424d-85a0-11ccc05e4cc9" class="">
+</p><p id="bdd23938-c702-4194-b920-5410e9407158" class=""><strong>-sS</strong>: Para el análisis de puertos TCP SYN</p><p id="d9d5de4d-91f6-4f29-aeb6-3e8d94186736" class=""><strong>—min-rate</strong>: para que envié 5000 paquetes por segundo (En esta ocasión usamos esta opción           dado que estamos en un entorno controlado)</p><p id="3e9800f5-b6c7-4b1d-a984-51882c986e88" class=""><strong>-p-</strong> : Nos analiza todo el rango de puerto, los 65536 puertos.</p><p id="0c5995a1-f833-423a-85c5-2db92859cf99" class=""><strong>-n</strong> : Para que nos quite la resolución DNS</p><p id="8af3e583-1cc7-47ed-a4ad-d25464f54bcb" class=""><strong>-Pn</strong>: Deshabilita la detección de host</p><p id="4f6dfb71-b54a-4e30-aae6-667d2211067d" class="">Todo esto lo vamos a pasar al fichero allPorts en formato Grepeable, pues se van a extraer los puertos para su análisis en versiones de puertos y servicios, esto lo haremos con la utilidad de S4vitar extractPorts.</p><p id="3f1454e9-46bb-4d60-b131-859cc785487e" class="">Extraemos y hacemos un escaneo con más profundidad con los puertos encontrados </p><figure id="7557fd98-5e38-4e67-b70c-c45d40b9e5e5" class="image"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%201.png"><img style="width:1289px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%201.png"/></a></figure><p id="fe32a7bc-2249-4ac0-9cda-237ca38affeb" class="">
+</p><p id="33cf5803-6ccc-4ad0-b992-9cacdaefc295" class="">sudo nmap -sCV -p 22,80 10.129.115.107 -vvv -oN Targeted</p><p id="925ba48b-2c7b-475d-ad30-2e0fe99a42bd" class="">
+</p><figure id="7102126b-bd4c-47e1-b6e3-ffe54a19e4c2" class="image"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%202.png"><img style="width:1193px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%202.png"/></a></figure><p id="1694cb9d-437b-4566-a699-5361a9e6172a" class="">Podemos ver que tenemos el puerto 22 y 80 abierto, con esto podemos hacer un escaneo de tecnologías, a demás podemos ver en la salida del puerto 80 el nombre de dominio <strong>http://horizontall.htb</strong></p><p id="0845cbd1-82e3-429d-ac06-84240aeee036" class="">Esto es importante ya que al momento de querer escanear no pude ya que no se conocía el host, así que tuve que agregar la información a mi archivo hosts </p><figure id="df128c90-c143-48a5-8387-9e4d84dbc1e9" class="image"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%203.png"><img style="width:729px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%203.png"/></a></figure><p id="0b55914b-417a-41b8-8972-25a42d7172fe" class="">
+</p><p id="c2a652f8-11ae-40a6-90f7-06529187f809" class="">Una vez echo esto pude hacer un escaneo de tecnologías, pero lamentablemente no hay nada que me pueda ayudar a pwnear la maquina </p><p id="f0e462ef-ecb4-4cbf-9b27-8da68e73a41f" class=""><strong>whatweb -v http://horizontall.htb/ &gt; scanWeb</strong></p><figure id="fa127eaf-c194-412b-b515-d1c76815114d" class="image"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%204.png"><img style="width:1100px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%204.png"/></a></figure><p id="b3b26044-0825-4e1b-ab34-3dabb03c3b2b" class="">La enumeración continua con un fuzzing de directorios y un fuzzing a subdominios, podría ser ya que tenemos un nombre de dominio </p><p id="ab8d1d1d-fcd8-42dd-8c31-7ac4d776fe64" class=""><strong>sudo gobuster dns -d www.horizontall.htb -w /usr/share/wordlists/seclists/Discovery/DNS/bitquark-subdomains-top100000.txt -t 100</strong></p><p id="6d9a7731-fdba-4ce7-bf47-98d207ac3188" class="">Sin embargo a la hora de hacer la enumeración dns no obtenemos nada, que pena </p><figure id="3205a6e0-ec34-466d-b044-a8bb7dbc8ead" class="image"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%205.png"><img style="width:1225px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%205.png"/></a></figure><p id="9fd481df-f0f7-449d-91a8-bc33c010db89" class="">
+</p><p id="1ac58ab8-4362-417e-8703-02aaebb3d64e" class="">Hagamos el fuzzing de directorios a ver que tal </p><p id="95cd9f89-be13-40c4-aadc-53f94ba0978c" class=""><strong>sudo gobuster dir -u http://horizontall.htb -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -t 100</strong></p><figure id="6c99c707-cd7c-4382-bf1f-3e7af1510fc1" class="image"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%206.png"><img style="width:1000px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%206.png"/></a></figure><p id="174621c2-c869-4ac9-ab69-6f5b800a3249" class="">Esta vez si tenemos algo de información aunque no suficientes pues esos directorios no son visibles, que pena de nuevo, seguiremos enumerando, pero toca visitar la web a ver que tal </p><p id="9a1cad6b-bf41-432c-93e0-0bfc03a1654b" class="">
+</p><p id="e85eac6a-61fc-4efb-9397-d719aef81522" class="">La pagina no muestra mucho y no tiene enlaces </p><figure id="e45b28a5-2b68-4f31-b88e-689d464f0fbc" class="image"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%207.png"><img style="width:1911px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%207.png"/></a></figure><p id="855ff03f-0768-4170-ae30-4871c64faa6e" class="">Hay un pequeño formulario de contacto al final de la misma, intente enviar información pero en realidad no envía nada </p><figure id="71b4421f-9c03-4ec3-b143-cb82a598762b" class="image"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%208.png"><img style="width:2266px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%208.png"/></a></figure><h2 id="309cc770-0c66-4528-ad78-77e24c2c3d86" class="">Punto de apoyo inicial</h2><p id="7f1e5f17-0ca3-415b-b045-11e74123ca3d" class="">Este punto es critico ya que me quede atorado un buen rato, hasta que hice lo que siempre hago en entornos reales, jugar con la consola del programador</p><p id="dcc8dd9f-9a5e-4e32-a38c-83c7cb5f1044" class="">Viendo las peticiones que hace el servidor hubo dos cosas que me llamaron la atención: <strong>app.c68eb462.js</strong> y <strong>chunk-vendors.0e02b89e.js</strong></p><figure id="28e9c19a-7c55-4017-82e2-ed8714b562e6" class="image"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%209.png"><img style="width:2115px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%209.png"/></a></figure><p id="4dc65ae2-48ba-4383-b9ff-a908dd6f0cc6" class="">
+</p><p id="dd927bb8-14e8-4cc6-bbe7-97d2eb4e2f2c" class="">Cuando continuo al depurador me doy cuenta que lo mismo que me llamo la atención están aquí, sin embargo <strong>chunk-vendors.0e02b89e.js </strong>no tiene algo interesante todo viene en texto plano y no encuentro algo que me sea útil</p><p id="ec1144ec-f348-4d12-95aa-03afa6efc1c4" class="">Por otro lado <strong>app.c68eb462.js </strong>si lo encuentro útil ya que para empezar por que esta ofuscado, si no tuviera algo que valga la pena ocultar no estaría oculto, ¿No? ¿Tu que piensas? </p><figure id="7a1d9e3f-bb8a-4223-a9ce-4cbc0587198e" class="image"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2010.png"><img style="width:1287px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2010.png"/></a></figure><p id="2f825cc5-9476-4f2c-b39b-933d43ce7dca" class="">Si así es, así se ve algo ofuscado, llevemos esto a un desofuscador elegí este de <a href="https://deobfuscate.io/">aquí</a> y realice la desofuscación </p><figure id="441a3820-4ed1-40b1-8d56-2cd1a5bdf4fe" class="image"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2011.png"><img style="width:1257px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2011.png"/></a></figure><p id="2c62ca59-b83f-4fc2-9510-a68b416eb6d0" class="">Para mayor comodidad llevé esto a un editor de textos, créeme es más cómodo, es mucho código tomate tu tiempo, cuando estuve leyendo el código pude notar esto </p><figure id="613df045-a42f-4870-af7e-74a5a57e2eda" class="image"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2012.png"><img style="width:718px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2012.png"/></a></figure><p id="0101019e-1498-45f7-bbb8-5edfa666395b" class="">Así es, una llamada a un subdominio, siempre es bueno revisar todo lo que hay en la pagina o el servidor, en este caso fue vital ya que solo tenemos dos puertos abiertos y el fuzzing de directorios y dns con las listas y herramientas convencionales no descubrió nada, siempre debemos fijarnos en lo que ocurre tras bambalinas, así podemos tener todo el panorama completo </p><p id="b07ee511-cf5c-4fe4-8247-1fac05454035" class="">Teniendo esto en cuenta, ahora podemos agregar esto a nuestro archivo hosts y vemos que trae esto en el navegador </p><figure id="ba63eef3-762b-49a1-8f95-3905a30547c0" class="image"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2013.png"><img style="width:1126px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2013.png"/></a></figure><p id="eb457b38-f53c-48af-98a0-be1515369bdc" class="">Si visitamos la pagina tal cual la encontramos nos encontramos un archivo JSON  </p><p id="9c0e821c-fdb3-42d7-9239-0f376d553ae6" class="">Y si visitamos la pagina sin el directorio solo tenemos un mensaje de bienvenida </p><figure id="5fb50f67-0154-4697-a807-f851ff4a7a15" class="image"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2014.png"><img style="width:995px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2014.png"/></a></figure><p id="176d00f5-4329-4086-9c87-dbd89b7a8c8a" class="">Por lo que el siguiente paso o lo que se me ocurrió fue hacer un fuzzing de directorios </p><p id="9b6b6fcb-6fb7-4ec4-9b88-afecb1cb61fe" class=""><strong>sudo gobuster dir -u http://api-prod.horizontall.htb/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -t 100</strong></p><p id="5c1d57b9-21ca-4142-935c-81108d3d27be" class="">Lo cual ahora si nos revela información relevante, como primer instancia hay directorios que nos llaman la atención como admin, que pudiera ser un panel del administración o información hay que darle una visitada </p><figure id="1da504c6-d426-43af-8799-455a15326611" class="image"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2015.png"><img style="width:1170px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2015.png"/></a></figure><p id="4934189c-110d-4d02-a74a-cc4a4e8a152e" class="">
+</p><p id="023e3474-4029-442d-96e6-70081ef9fc11" class="">Y en efecto es un panel de loggin para el administrador sin embargo no tenemos credenciales, intente buscar las credenciales predeterminadas pero no funcionaron las que encontre, entonces decidí por clásicos ataques, que tampoco dieron éxito </p><p id="79d91e64-ec39-4fa1-9c0f-c498e3a4a240" class="">
+</p><figure id="a9f21f31-76fb-4080-a280-e61896da6347" class="image"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2016.png"><img style="width:560px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2016.png"/></a></figure><p id="bacb4988-f285-472c-9a2d-0db751d27102" class="">En esta parte como la enumeración con gobuster no nos arrojo mas información, decidí repetir el ejercicio anterior y ver que recursos que el servidor llama por detrás </p><p id="fe9a9a47-5074-4e03-9a3e-9558a4ce5840" class="">De esto me llamo la atención el archivo init, lo cual usualmente son archivos de configuración </p><figure id="57f09e5a-b046-41f3-8d6b-73dd00d4e0c7" class="image"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2017.png"><img style="width:1996px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2017.png"/></a></figure><p id="ba74defe-6dac-41cc-88e7-069550591590" class="">Hay dos enlaces, tuve que visitar los dos, fue el segundo enlace el que me dio la información requerida, la versión de strapi </p><figure id="7e6e145c-6443-49f8-b61d-79e5e6478b51" class="image"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2018.png"><img style="width:833px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2018.png"/></a></figure><p id="555afd9f-f27b-4989-8f43-ea4bf9bbe778" class="">
+</p><p id="de23b049-0805-4ca3-bbaa-ab9223fc7212" class="">Ya teniendo la versión del CMS pude hacer una búsqueda de vulnerabilidades y exploits </p><p id="7d61b924-d182-446f-a742-31de5903d22e" class="">Con esto a la mano encontré varios CVE que son </p><p id="3313d74e-776a-49c8-a634-d1283471ea52" class="">
+</p><ul id="6d9c3c8b-feb6-4ae2-9f41-ee366abe0a5f" class="bulleted-list"><li style="list-style-type:disc"><strong>CVE-2019-18818</strong><p id="bf28a9e6-af5f-4d71-9d5b-0c43b0da2380" class="">Esta vulnerabilidad maneja mal el restablecimiento de la contraseña en <strong>packages/strapi-admin/controller/Auth.js </strong>y <strong>packages/strapi-plugin-users-permissions/controllers/Auth.js </strong>esto nos permite cambiar la contraseña de un usuario de altos privilegios y asimismo garantizar el acceso no autorizado</p></li></ul><ul id="22c572d0-0ba5-466a-9a3f-241f665c3673" class="bulleted-list"><li style="list-style-type:disc"><strong>CVE-2019-19609</strong><p id="65ee4a9a-1771-4013-be2c-670431692d78" class="">Documentada tiempo después se encontró esta vulnerabilidad la cual permite la ejecución de código remoto , para la explotación de esta vulnerabilidad necesitamos el JSON Wen Token </p></li></ul><p id="d34f0f5d-44c7-4f80-b743-0662a3d8d9b8" class="">
+</p><p id="e17376ae-0cb7-4ab3-a92e-add90c1e6741" class="">En este sentido encontré dos diferentes exploits para la primer vulnerabilidad, el primero este de <a href="https://www.exploit-db.com/exploits/50237">aquí</a> sin embargo no es tan funcional, para que no pierdas tanto tiempo. </p><p id="42ed70b4-5186-405b-88e2-9f3cee8bd228" class="">
+</p><p id="889452a7-c90f-42f8-a7cf-e582ede87fe2" class="">Ambos exploits se complementan, por lo que use uso de este <a href="https://www.exploit-db.com/exploits/50239">exploit </a></p><p id="2f5122a4-090d-4abd-aa48-3dea4ad615d2" class="">la forma de  descargar estos archivos desde github es: </p><p id="32322f0c-440d-448e-957e-cf6838ab627a" class=""><strong>wget http://raw.githubusercontent.com/z9fr/CVE-2019-19609/main/exploit.py</strong></p><p id="3b5bba40-9e86-4385-bebf-56a0c20c0e1e" class="">Siempre te recomiendo usar el archivo crudo, si el exploit es de database, ahí mismo tiene la opción de descarga </p><p id="4299dfbd-5521-444c-ac5c-e43d34bf303d" class="">Su uso es meramente trivial</p><figure id="b5c9f7ea-975e-4cbc-955f-f8caf8718e86" class="image"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2019.png"><img style="width:1632px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2019.png"/></a></figure><p id="b19f7c2c-3ca9-49b2-b92a-aa145bb75b6c" class="">
+</p><p id="3a86416b-c8c8-4f96-9640-97d101f1104a" class="">Esto es importante ya que esto nos arroja el JSON Web Token, que usaremos en el exploit de la CVE-2019-19609, ´para este exploit encontré una <a href="https://www.youtube.com/watch?v=alhZJmuUd2s&amp;feature=youtu.be&amp;themeRefresh=1">PoC</a> y también el enlace al exploit <a href="https://github.com/z9fr/CVE-2019-19609/tree/main">aquí </a></p><p id="88b8cdee-1272-42b9-a1ab-4e26b733ff3b" class="">Su uso al igual que el exploit pasado es trivial, el mismo video lo explica, ahora usando estos dos exploits nos permite obtener una shell sobre el sistema </p><figure id="70cc1abe-ee43-4037-85d3-d28250d2b50f" class="image"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2020.png"><img style="width:1902px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2020.png"/></a></figure><p id="97d615cb-e761-46c6-bd5c-daf5c6f81f73" class="">
+</p><p id="ccc6da07-453f-4759-814e-6f8d267ff7a3" class="">Recuerda levantar un oyente para obtener la shell con <strong>rlwrap nc -nlvp 9001</strong></p><figure id="443de89d-c819-4ac5-8856-fb128dbd2651" class="image"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2021.png"><img style="width:931px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2021.png"/></a></figure><p id="edd2e414-26a3-48e4-b47d-34b3a1a9d4de" class="">Ahora ya tenemos una shell del sistema </p><h2 id="74c97c5d-b7b6-48a4-b2c0-01fb9ad2fdc5" class="">Elevación de privilegios</h2><p id="5da2dcae-24b8-4ba4-9941-4849d57b4938" class="">
+</p><p id="2651d604-8dfb-41ac-a111-dda21e952402" class="">Para la elevación de privilegios, intente los clásicos comandos de enumeración, sin embargo no fueron de éxito, sin embargo encontré el directorio <strong>/opt/strapi. </strong>Cuando no encontré nada use el comando <strong>netstat -auntp </strong>que me permitió ver las comunicaciones internas del servidor, con lo que pude ver que el puerto 8000 se esta comunicando con algo, use <strong>curl</strong> para ver cada puerto local </p><figure id="3e14d286-b5f9-46d3-bf37-5f8ba979c46b" class="image" style="text-align:left"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2022.png"><img style="width:354px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2022.png"/></a></figure><figure id="aab8f38f-fe48-4402-acfb-b543c35ce8e9" class="image"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2023.png"><img style="width:862px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2023.png"/></a></figure><p id="4a0a6def-78c7-4cbc-a88d-21e8185c0c19" class=""><strong>curl 127.0.0.1:8000</strong></p><figure id="03fe09d0-5b3b-4fb4-ac99-3a10eab107b1" class="image"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2024.png"><img style="width:766px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2024.png"/></a></figure><p id="e0e65224-e3e3-423a-8447-b8903d85e2eb" class="">Por lo que vemos es un servicio que usa Laravel v8, evidentemente jaja, con la información de la versión busquemos si hay algún exploit o vulnerabilidad para este servicio que tenemos </p><p id="5e00339d-1187-4826-b91c-08fb19a3bbfd" class="">Para esta versión de Laravel encontré el<strong> CVE-2021-3129 </strong>encontrarlo fue relativamente fácil, también me encontré con <a href="https://github.com/nth347/CVE-2021-3129_exploit">este</a> exploit público que me permitiría ejecutar código de forma remota</p><p id="3c5da25c-5302-4935-872c-34fdfcca2907" class="">Sin embargo, esto no podría funcionar así de fácil, en principio el servicio no esta expuesto al internet, pues en un principio no lo vimos cuando se hicieron los escaneos con nmap, se comunican  de forma interna, así que tendremos que hacer un reenvió de puertos (port forwarding)</p><h2 id="4f304dc6-87b4-4a22-a105-f46979372183" class="">Port forwarding</h2><p id="5d708133-3e30-4e87-8989-03193852b917" class="">Permite que servidores y dispositivos remotos en internet accedan a servidores dentro de redes privadas y viceversa. Sin el reenvió de puertos solo los dispositivos y servidores que se encuentran dentro de la red privada pueden comunicarse entre si, el reenvió de puertos permite que se puedan comunicar con quien sea en internet. </p><p id="5a9374d7-d6c3-48da-b598-24a10f0e7011" class="">
+</p><p id="47c0000f-5d5c-4eb1-afdf-e7d9b1edf9fe" class="">Para hacer el reenvió de puertos usaremos <strong>ssh</strong> para poder tener un shell y obtener el servicio expuesto en nuestro navegador. </p><p id="693fb75a-53b6-48f7-82ce-49f5e9db095e" class="">Primero tenemos que crear unas llaves <strong>ssh</strong></p><figure id="fb1d324a-45c6-43be-979e-1e3429c62b29" class="image"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2025.png"><img style="width:1362px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2025.png"/></a></figure><p id="0245ca72-c96d-41a4-a6bd-b6b70f883d12" class="">Ahora tiendes tu llave publica y la llave privada, necesitamos la publica, esta la pasáramos a la maquina, al directorio<strong> /opt/strapi </strong>dentro de ella hay que crear el directorio <strong>.ssh </strong>usemos <strong>mkdir .ssh </strong>y ahí lo que tenemos que hacer es levantar un servidor con <strong>python</strong> en nuestra maquina local y descargar la llave publica desde la maquina </p><figure id="ad035653-7a8e-45d7-a8cf-ebfcbb661262" class="image" style="text-align:left"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2026.png"><img style="width:670px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2026.png"/></a></figure><p id="b1a192c8-59da-4a03-a269-5bb5e47a33ed" class="">Con esto ya en la maquina tenemos que reemplazar la llave con authorized_keys</p><p id="26d2e434-18a0-4b36-9d18-d7b6fa93978f" class=""><strong>mv id_rsa.pub authorized_keys</strong></p><figure id="52147450-d497-4195-b1af-74035790dc58" class="image" style="text-align:left"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2027.png"><img style="width:356px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2027.png"/></a></figure><p id="411feeb9-9d4b-4777-9163-7644ebc78eeb" class="">Con esto echo podemos hacer un reenvió de puertos</p><p id="ae1b20eb-6955-481f-ac8b-5dcf16b057c2" class=""><strong>ssh -i id_rsa strapi@10.10.10.10 -L 8000:localhost:8000</strong></p><p id="4c05cc78-b58b-4a67-a450-527946b39a9f" class="">Desglosare este comando en dos partes</p><p id="30f5f5ce-6185-453b-a1ab-779cfede45d8" class=""><strong>-i</strong> : Indica que usaremos nuestra llave privada para que se “conecta” con la llave publica</p><p id="becd1a2b-883c-4f81-8b64-d9383c8fde96" class=""><strong>strapi@10.10.10.10</strong> : Es la dirección a la cual accederemos, por nombre de usuario e ip o dirección de dominio</p><p id="e8bb6039-6dcb-4ecf-b253-f314a723c887" class="">La forma de esta primera parte se puede ver así <div class="indented"><p id="59218c05-e688-47b1-a718-750b1f386f50" class=""><strong>ssh [usuario]@[ip-destino]</strong></p></div></p><p id="b75a73c0-c8ef-4d3f-8880-a31daf1d7d16" class="">La segunda parte del comando puede verse así<div class="indented"><p id="ec51dad8-261a-474d-942c-c088652b5752" class=""><strong>-L [Puerto-local]:[ip-destino]:[puerto-destino]</strong></p></div></p><p id="6eb38901-1b46-4628-91b6-d5761b7409f9" class=""><strong>-L </strong>: Para indicar que lo vamos hacerlo de forma local, es decir queremos traer esto a nuestro host de ataque </p><figure id="1d38743f-82fd-4718-a112-c113a24568f4" class="image"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2028.png"><img style="width:695px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2028.png"/></a></figure><p id="bae77382-88a1-4071-acb3-3535871ca3e3" class="">Ahora que tenemos la shell y el servicio expuesto de nuestro lado podemos ver este mismo en nuestro localhost</p><figure id="8253a172-3457-4d15-8188-a6ab35770ae0" class="image"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2029.png"><img style="width:1810px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2029.png"/></a></figure><p id="aadee38e-3ace-4f4b-9c30-e93db579a1c9" class="">Con este servicio expuesto de nuestro lado podemos hacer uso del exploit antes mencionado, ya que ahora si lo podemos alcanzar.</p><p id="afcb1fce-603a-4409-b30c-0d1b888969ad" class="">Su uso es muy trivial</p><figure id="387fe79a-3512-4b5d-a4d2-dd6be907ec7a" class="image"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2030.png"><img style="width:812px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2030.png"/></a></figure><p id="77f512e1-4ae7-4a8c-8386-842e92e531d6" class="">
+</p><p id="fba7374d-327f-4a46-be64-5dbccd6f5e81" class="">Por lo que ahora podemos ejecutar comando como el usuario root.</p><p id="529868f8-35b3-426f-ab11-aa768bceb629" class="">
+</p><p id="df0c3022-f9ee-47e7-a46a-5d50b9bb9348" class="">Otras formas de encontrar el ROOT</p><p id="8263c419-b7fc-44a8-a2ce-803dbda005e0" class="">Si bien la manera en que llegamos al root es una buena forma de hacer las cosas pues tuvimos que investigar y preparar todos los escenarios, hay otra forma mas rápida de llegar al root </p><p id="e309ea52-c0c5-4a3c-8a86-fc57137e6119" class="">Para esto usaremos el <strong>CVE-2021-4034 </strong>que es una vulnerabilidad de escalada de privilegios locales en pkexec de polkit, el exploit lo puedes encontrar <a href="https://raw.githubusercontent.com/arthepsy/CVE-2021-4034/main/cve-2021-4034-poc.c">aquí</a> </p><p id="e1091c6e-aa0e-433d-962f-0bd6f1f644a4" class="">La forma de hacer que esto funcione es la siguiente </p><p id="9d37b5f7-30e6-4eea-8465-e97df5b60cd9" class="">descargue el exploit en mi maquina persona </p><p id="e356a502-4c57-4864-9a72-c50a8f364dd4" class=""><strong>wget https://raw.githubusercontent.com/arthepsy/CVE-2021-4034/main/cve-2021-4034-poc.c</strong></p><p id="30f5e17b-dedc-4d8c-a670-3d715c27a7cb" class="">Lo renombre </p><p id="f3ae1dc4-51c9-4e9b-befa-cec08c67174b" class=""><strong>mv cve-2021-4034-poc.c poc.c</strong> </p><p id="5463593a-1645-4f4a-a099-b33c71a3449d" class="">Lo trasladamos a la maquina  victima levantando un servidor de pyhon en el directorio /tmp pues es el único que nos dejaría poder ejecutar archivos binarios, seguido de esto ejecute los siguientes comandos </p><p id="5713a304-104b-4d90-8aa3-2305907369b2" class=""><strong>gcc &#x27;poc.c&#x27; -o exploit</strong></p><p id="3999ca45-512d-4596-9b9b-c3433461985b" class=""><strong>gcc &#x27;poc.c&#x27; -o exploit</strong></p><p id="14c28603-d706-47a5-a397-32dc94d7bd9d" class=""><strong>./exploit</strong></p><figure id="b72a32a9-4c1a-42ac-967e-a015d86312ca" class="image"><a href="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2031.png"><img style="width:1000px" src="WriteUp%20Horizontall%20cbd8d8a9999d4a3b8aec86f3261aeac8/Untitled%2031.png"/></a></figure><p id="11132392-ccaa-4aac-8407-859e11022d59" class="">¡Obtuvimos una shell con todos los privilegios de administrador!</p><p id="7d50c729-1112-441e-85f7-fde7f37cb574" class="">
+</p><p id="03e2784c-ad95-4770-b37c-a847663de7b9" class="">Muy bien, espero que te gustara, si te fue de ayuda para aprender nuevas cosas, por favor comparte. </p><p id="76fe313d-0df9-42af-ba4d-da6ffa122a10" class="">
+</p><p id="e31e4bd7-d020-4231-a203-7de6eefe4050" class="">Happy Hacking. </p></div></article></body></html>
